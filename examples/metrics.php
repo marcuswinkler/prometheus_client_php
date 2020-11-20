@@ -15,6 +15,8 @@ if ($adapter === 'redis') {
     $adapter = new Prometheus\Storage\APC();
 } elseif ($adapter === 'in-memory') {
     $adapter = new Prometheus\Storage\InMemory();
+} elseif ($adapter === 'sqlite') {
+    $adapter = new \Prometheus\Storage\Sqlite('/tmp/metrics.sqlite');
 }
 $registry = new CollectorRegistry($adapter);
 $renderer = new RenderTextFormat();

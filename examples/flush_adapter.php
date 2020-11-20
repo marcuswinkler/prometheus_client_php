@@ -14,6 +14,8 @@ if ($adapterName === 'redis') {
     $adapter = new Prometheus\Storage\APC();
 } elseif ($adapterName === 'in-memory') {
     $adapter = new Prometheus\Storage\InMemory();
+} elseif ($adapterName === 'sqlite') {
+    $adapter = new Prometheus\Storage\Sqlite('/tmp/metrics.sqlite');
 }
 
 $adapter->wipeStorage();

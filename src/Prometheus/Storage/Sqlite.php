@@ -54,11 +54,6 @@ final class Sqlite implements Adapter
     public function updateCounter(array $data): void
     {
         $this->insertMeta($data);
-
-        if ($data['command'] === Adapter::COMMAND_SET) {
-            $data['value'] = 0;
-        }
-
         $this->insertSample($data);
     }
 
